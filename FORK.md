@@ -2,7 +2,8 @@
 
 This repository is a fork of [RE-UE4SS](https://github.com/UE4SS-RE/RE-UE4SS) by the UE4SS-RE team and its
 contributors (MIT license, see [LICENSE](LICENSE)). It exists so that official UE4SS builds, with a ready package for
-each tested game, can be listed on [openmods](https://openmods.nexus), which reads `openmods.json` and `openmods.md`
+each tested game (and, for Stellar Blade, one community build), can be listed on [openmods](https://openmods.nexus),
+which reads `openmods.json` and `openmods.md`
 from the default branch of a GitHub repository. Its first name was `dawnwalker_ue4ss`; since 2026-10-23 it is
 `ue4ss`, one listing for all tested games.
 
@@ -23,7 +24,8 @@ from the default branch of a GitHub repository. Its first name was `dawnwalker_u
   (2026-02-18), the source of the official experimental build `UE4SS_v3.0.1-934-gcac01ee2.zip` (Wuchang: Fallen
   Feathers, since 2026-11-15), is an ancestor of all of them.
 - The UE4SS code is unchanged. This fork adds only `FORK.md`, `openmods.json`, `openmods.md` and the cover image
-  `docs/cover.webp`. It is unofficial: the UE4SS team did not make it and does not support it.
+  `docs/cover.webp`. It is unofficial: the UE4SS team did not make it and does not support it. One release file is
+  not an official build: the Stellar Blade zip holds the `UE4SS.dll` of the community build SB-UE4SS (below).
 - The release `v4.0.0` (2026-11-13) holds:
   - `UE4SS_v4.0.0.zip` and `zCustomGameConfigs.zip`: the files of the official UE4SS release v4.0.0, unchanged.
     (Against 1195, the files of a game install differ only in `dwmapi.dll`, `ue4ss\UE4SS.dll` and
@@ -46,6 +48,14 @@ from the default branch of a GitHub repository. Its first name was `dawnwalker_u
     comments) and nine files in `ue4ss\Default_UVTD_Configs\Config\`. The first upload had only
     `HookInitGameState = 0`. Build 934 because every later build has the gamepad problem of
     [UE4SS-RE/RE-UE4SS#1499](https://github.com/UE4SS-RE/RE-UE4SS/issues/1499) in this game. Not tested here.
+  - Added on 2026-11-15, **experimental**: `SB.UE4SS.1.3.zip`, the release `1.3` (2026-05-24) of the community build
+    [Rev-OG-UwU/SB-UE4SS](https://github.com/Rev-OG-UwU/SB-UE4SS) (MIT; a fork of UE4SS at upstream commit
+    [`0196ef29`](https://github.com/UE4SS-RE/RE-UE4SS/commit/0196ef294f8525d6a492ae0b41b0c18ad5ccd84b), 2026-03-27, based on the Stellar Blade fork
+    [Chrisr0/RE-UE4SS](https://github.com/Chrisr0/RE-UE4SS)), unchanged (SHA-256 `1001bfb9...` as GitHub's digest),
+    and `stellarblade_ue4ss_sb-ue4ss-1.3.zip`: its 30 files byte for byte, moved from `SB/Binaries/Win64/` to the top
+    of the zip like every other game zip, plus `ue4ss/LICENSE` (UE4SS's MIT license; the original zip holds none).
+    Its settings stay as the author ships them (`HookBeginPlay = 0`). The `UE4SS.dll` in both is built by the
+    author of SB-UE4SS, not by the UE4SS team. Not tested here.
   - `SHA256SUMS.txt`.
 - The release `v3.0.1-1195-g1ceefac8` (2026-11-01) holds:
   - `UE4SS_v3.0.1-1195-g1ceefac8.zip` and `zCustomGameConfigs.zip`: the official files of that build, unchanged.
@@ -119,3 +129,4 @@ from the default branch of a GitHub repository. Its first name was `dawnwalker_u
 | 2026-11-13 | v4.0.0 | Upstream `30afe5ff` merged (the official release v4.0.0); Phantom Blade Zero tested with it on Steam build 26367565; the same config; no code change | `FORK.md`, `openmods.json`, `openmods.md` |
 | 2026-11-15 | v4.0.0 | Wuchang: Fallen Feathers added, not tested here: the official build `v3.0.1-934-gcac01ee2` (the last one without the gamepad problem of UE4SS-RE/RE-UE4SS#1499) with one setting, `HookInitGameState = 0`; no code change | `FORK.md`, `openmods.json`, `openmods.md`; `ue4ss/UE4SS-settings.ini` in `wuchang_ue4ss_v3.0.1-934-gcac01ee2.zip` |
 | 2026-11-15 | v4.0.0 | Wuchang: Fallen Feathers zip uploaded again: now byte for byte the files of the community package "UE4SS for WFF" 1.79 (its settings file, mods.txt, mods.json, the older official BPModLoaderMod script, nine developer config files); the same build; no code change | `FORK.md`, `openmods.md`; those files in `wuchang_ue4ss_v3.0.1-934-gcac01ee2.zip` |
+| 2026-11-15 | v4.0.0 | Stellar Blade added, experimental and not tested here: the community build SB-UE4SS 1.3 (Rev-OG-UwU) as it is, its files moved to the top of the zip, UE4SS's MIT license added; no code change | `FORK.md`, `openmods.json`, `openmods.md`; `ue4ss/LICENSE` in `stellarblade_ue4ss_sb-ue4ss-1.3.zip` |

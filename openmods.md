@@ -1,7 +1,7 @@
 # UE4SS
 
-The official [RE-UE4SS](https://github.com/UE4SS-RE/RE-UE4SS) script loader with one ready zip per Unreal game: UE4SS
-plus that game's config.
+The [RE-UE4SS](https://github.com/UE4SS-RE/RE-UE4SS) script loader with one ready zip per Unreal game: official UE4SS
+plus that game's config. Stellar Blade gets a community build instead, marked **experimental** (below).
 
 ## What it does
 
@@ -17,10 +17,12 @@ need it. This listing republishes official UE4SS builds, so they can be found on
 - UE4SS `v3.0.1-934-gcac01ee2`: the official experimental build of 2026-02-18 (commit
   [`cac01ee2`](https://github.com/UE4SS-RE/RE-UE4SS/commit/cac01ee29ca2e2fa723ae3a4e14f0d52b70b226d)), for Wuchang:
   Fallen Feathers (below).
+- **Experimental:** SB-UE4SS `1.3` (2026-05-24), a community build of UE4SS for Stellar Blade by
+  [Rev-OG-UwU](https://github.com/Rev-OG-UwU/SB-UE4SS), not an official build (below).
 - One ready zip per game: the official UE4SS files, plus the UE4SS team's own config for that game when the team has
   one (from `zCustomGameConfigs.zip`), our own config where the game needs one (Phantom Blade Zero), or the files of a
-  community package (Wuchang: Fallen Feathers), below.
-- Nothing else: UE4SS itself is not changed, and no mod is added. The official files of these builds are attached to
+  community package (Wuchang: Fallen Feathers, Stellar Blade), below.
+- Nothing else: UE4SS itself is not changed, and no mod is added. The original files of these builds are attached to
   the release as well, so you can compare.
 
 | Game | Zip | Config | Tested |
@@ -30,6 +32,7 @@ need it. This listing republishes official UE4SS builds, so they can be found on
 | Mortal Shell II | `mortalshell2_ue4ss_v3.0.1-1181-g83330635.zip` | `MortalShell2` (the UE4SS team's) | 1.12.0, 2026-10-23 |
 | Phantom Blade Zero | `phantombladezero_ue4ss_v4.0.0.zip` | `PhantomBladeZero` (ours, below) | Steam build 26367565, 2026-11-13 (earlier builds: 2026-10-29 to 2026-11-04) |
 | Wuchang: Fallen Feathers | `wuchang_ue4ss_v3.0.1-934-gcac01ee2.zip` | the files of the community package "UE4SS for WFF" (below) | not tested here |
+| Stellar Blade | `stellarblade_ue4ss_sb-ue4ss-1.3.zip` | the community build SB-UE4SS 1.3 as it is (below) | **experimental**, not tested here |
 
 ### Phantom Blade Zero
 
@@ -75,6 +78,31 @@ unchanged) with that package's own files:
 
 This zip is not tested here: the game is not installed on our test PC.
 
+### Stellar Blade (experimental)
+
+The official UE4SS has no config for Stellar Blade (Unreal Engine 4.26), and the UE4SS team does not add support for
+single games ([UE4SS-RE/RE-UE4SS#898](https://github.com/UE4SS-RE/RE-UE4SS/issues/898)). Players use community builds
+instead: first [Chrisr0/RE-UE4SS](https://github.com/Chrisr0/RE-UE4SS) (last build 2025-07-02), now
+[SB-UE4SS](https://github.com/Rev-OG-UwU/SB-UE4SS) by Rev-OG-UwU, a fork of UE4SS based on Chrisr0's work.
+
+SB-UE4SS starts from the official UE4SS code of 2026-03-27 (about 500 commits newer than Chrisr0's build). It adds
+files for the game: two signature files (`GNatives.lua`, `GUObjectArray.lua`), `VTableLayout.ini` and the engine
+version 4.26 in `UE4SS-settings.ini`; its zip also holds a `MemberVariableLayout.ini`. Its code changes are small: a
+name check in the SDK generator and a save backup function that nothing calls. Its `UE4SS.dll` is built by its
+author, not by the UE4SS team.
+
+The zip holds the 30 files of SB-UE4SS release [`1.3`](https://github.com/Rev-OG-UwU/SB-UE4SS/releases/tag/1.3)
+(`SB.UE4SS.1.3.zip`, 2026-05-24) byte for byte. Two changes, both outside the files:
+
+- the files sit at the top of the zip (`dwmapi.dll`, `ue4ss\`), as in every zip here, not in `SB\Binaries\Win64\`;
+- `ue4ss\LICENSE` is added: UE4SS's MIT license, which the original zip does not hold.
+
+Its settings stay as the author ships them, also `HookBeginPlay = 0` (see Known issues). The original
+`SB.UE4SS.1.3.zip` is attached to the release, so you can compare.
+
+This zip is **experimental** and not tested here: the game is not installed on our test PC. Please report how it works
+for you.
+
 ## Screenshots
 
 ![UE4SS](docs/cover.webp)
@@ -90,6 +118,7 @@ This zip is not tested here: the game is not installed on our test PC.
    - Phantom Blade Zero: `platform\steam\`, next to the large `PBZ.exe` (about 500 MB). Not `steam\` (its small
      `PBZ.exe` only starts the game) and not `ProjectPBZ\Binaries\Win64\` (it holds no exe).
    - Wuchang: Fallen Feathers: `Project_Plague\Binaries\Win64\`, next to `Project_Plague-Win64-Shipping.exe`.
+   - Stellar Blade: `SB\Binaries\Win64\`, next to the game's exe.
 
    You then have `dwmapi.dll` and the folder `ue4ss\` next to the game's exe.
 4. Start the game. UE4SS writes its log to `ue4ss\UE4SS.log` in that folder.
@@ -105,8 +134,8 @@ UE4SS mods go into `ue4ss\Mods\<mod name>\` next to the game's exe. A mod with a
 starts by itself; other mods are listed in `ue4ss\Mods\mods.txt`. The build comes with UE4SS's own helper mods: the
 game console on `~`, `^` or `F10` (ConsoleEnablerMod), the cheat manager (CheatManagerEnablerMod), a loader for
 Blueprint mods in the game's `Content\Paks\LogicMods\` folder (BPModLoaderMod; `Dawnwalker\Content\Paks\LogicMods\`,
-`Sandfall\Content\Paks\LogicMods\`, `MortalShell2\Content\Paks\LogicMods\`, `ProjectPBZ\Content\Paks\LogicMods\` or
-`Project_Plague\Content\Paks\LogicMods\`),
+`Sandfall\Content\Paks\LogicMods\`, `MortalShell2\Content\Paks\LogicMods\`, `ProjectPBZ\Content\Paks\LogicMods\`,
+`Project_Plague\Content\Paks\LogicMods\` or `SB\Content\Paks\LogicMods\`),
 and keys for dumps (Keybinds: Ctrl+H the C++ headers, Ctrl+Num6 the mapping file).
 
 ## Compatibility
@@ -130,6 +159,8 @@ and keys for dumps (Keybinds: Ctrl+H the C++ headers, Ctrl+Num6 the mapping file
   our two signatures found their functions, a UE4SS C++ mod and a script pak mod worked.
 - Wuchang: Fallen Feathers (Unreal Engine 5.1): not tested here. The zip uses the build that UE4SS-RE/RE-UE4SS#1499
   names as working with a gamepad, and the files of the community package "UE4SS for WFF" 1.79, byte for byte.
+- Stellar Blade (Unreal Engine 4.26): **experimental**, not tested here. The zip is the community build SB-UE4SS 1.3
+  (2026-05-24), byte for byte; whether it fits the newest game update is not known here.
 - Other games are not tested here. For them, use the official `UE4SS_v4.0.0.zip` with your game's config from
   `zCustomGameConfigs.zip`, if the UE4SS team has one.
 - A game update can need a new UE4SS build or config. Then check the
@@ -152,12 +183,24 @@ and keys for dumps (Keybinds: Ctrl+H the C++ headers, Ctrl+Num6 the mapping file
   - A game update can change the exe; then the patterns or the layout in our config may need an update.
 - Wuchang: Fallen Feathers: the zip is not tested by us yet; please report how it works for you. Do not update it to
   a newer UE4SS (such as 4.0.0) until UE4SS-RE/RE-UE4SS#1499 is fixed: then the gamepad problem above comes back.
+- Stellar Blade (experimental; the reports below come from players of the community builds):
+  - `HookBeginPlay = 0` (the author's setting): Lua mods that hook `BeginPlay` (`RegisterBeginPlayPreHook`,
+    `RegisterBeginPlayPostHook`) do nothing. A mod that needs it: set `HookBeginPlay = 1` in
+    `ue4ss\UE4SS-settings.ini`. With `1`, players report a crash when Eve lets go of a movable crate
+    ([Chrisr0/RE-UE4SS#3](https://github.com/Chrisr0/RE-UE4SS/issues/3),
+    [#27](https://github.com/Chrisr0/RE-UE4SS/issues/27)); set `0` again for such a puzzle.
+  - After a game update, the game may not start with UE4SS. The fix from the community builds: rename
+    `ue4ss\UE4SS_Signatures\FText_Constructor.lua` to `dFText_Constructor.lua`, start the game once, close it and
+    rename the file back.
+  - This build is not an official UE4SS build: report problems with it here or to
+    [SB-UE4SS](https://github.com/Rev-OG-UwU/SB-UE4SS), not to the UE4SS team.
 - The 1181 and 934 builds are experimental builds of UE4SS. Report problems with UE4SS itself to the
   [UE4SS issues](https://github.com/UE4SS-RE/RE-UE4SS/issues), and problems with these packages here.
 
 ## How to build
 
-This package builds nothing: it repackages the official builds. Building UE4SS from source needs Visual Studio and
+This package builds nothing: it repackages the official builds, and for Stellar Blade one community build as it is.
+Building UE4SS from source needs Visual Studio and
 access to Epic Games' Unreal source; see the [UE4SS documentation](https://github.com/UE4SS-RE/RE-UE4SS#build-requirements).
 `FORK.md` lists exactly what this repository and its release files add to UE4SS.
 
@@ -166,6 +209,8 @@ access to Epic Games' Unreal source; see the [UE4SS documentation](https://githu
 UE4SS is made by the [UE4SS-RE team and its contributors](https://github.com/UE4SS-RE/RE-UE4SS/graphs/contributors),
 MIT license; the Phantom Blade Zero signatures are theirs too (from their custom game configs). The Wuchang: Fallen
 Feathers files are those of the community package "UE4SS for WFF" (Nexus Mods); its setting against the crash at
-start comes from players in UE4SS-RE/RE-UE4SS#1177. This listing, the packages and the Phantom Blade Zero
+start comes from players in UE4SS-RE/RE-UE4SS#1177. The Stellar Blade build is
+[SB-UE4SS](https://github.com/Rev-OG-UwU/SB-UE4SS) by Rev-OG-UwU (MIT license), based on the Stellar Blade fork
+[Chrisr0/RE-UE4SS](https://github.com/Chrisr0/RE-UE4SS) by Chrisr0. This listing, the packages and the Phantom Blade Zero
 layout: Kintaro. MIT license, as UE4SS. These packages are unofficial: the UE4SS
 team did not make them and does not support them.
