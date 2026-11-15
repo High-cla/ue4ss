@@ -77,7 +77,7 @@ This zip is not tested here: the game is not installed on our test PC.
 
 ## Screenshots
 
-![UE4SS](docs/cover.png)
+![UE4SS](docs/cover.webp)
 
 ## How to install
 

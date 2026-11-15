@@ -5,7 +5,7 @@
   "summary": "The official RE-UE4SS script loader with one ready zip per Unreal game: UE4SS plus that game's config.",
   "games": ["the-blood-of-dawnwalker", "clair-obscur-expedition-33", "mortal-shell-ii", "phantom-blade-zero", "wuchang-fallen-feathers"],
   "tags": ["tools", "library"],
-  "cover": "docs/cover.png",
+  "cover": "docs/cover.webp",
   "gameVersions": {
     "the-blood-of-dawnwalker": ["Patch 2"],
     "clair-obscur-expedition-33": ["1.5.6"],

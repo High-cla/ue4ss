@@ -23,7 +23,7 @@ from the default branch of a GitHub repository. Its first name was `dawnwalker_u
   (2026-02-18), the source of the official experimental build `UE4SS_v3.0.1-934-gcac01ee2.zip` (Wuchang: Fallen
   Feathers, since 2026-11-15), is an ancestor of all of them.
 - The UE4SS code is unchanged. This fork adds only `FORK.md`, `openmods.json`, `openmods.md` and the cover image
-  `docs/cover.png`. It is unofficial: the UE4SS team did not make it and does not support it.
+  `docs/cover.webp`. It is unofficial: the UE4SS team did not make it and does not support it.
 - The release `v4.0.0` (2026-11-13) holds:
   - `UE4SS_v4.0.0.zip` and `zCustomGameConfigs.zip`: the files of the official UE4SS release v4.0.0, unchanged.
     (Against 1195, the files of a game install differ only in `dwmapi.dll`, `ue4ss\UE4SS.dll` and
@@ -104,9 +104,9 @@ from the default branch of a GitHub repository. Its first name was `dawnwalker_u
 | Date | Version | Change | Files |
 |---|---|---|---|
 | 2026-10-22 | v3.0.1-1181-g83330635 | Fork made; openmods files added; no code change | `FORK.md`, `openmods.json`, `openmods.md` |
-| 2026-10-22 | v3.0.1-1181-g83330635 | Cover image for the openmods page; no code change | `docs/cover.png`, `openmods.json`, `openmods.md` |
+| 2026-10-22 | v3.0.1-1181-g83330635 | Cover image for the openmods page; no code change | `docs/cover.webp`, `openmods.json`, `openmods.md` |
 | 2026-10-23 | v3.0.1-1181-g83330635 | One listing for all tested games: Clair Obscur: Expedition 33 added, repository renamed to `ue4ss`; no code change | `FORK.md`, `openmods.json`, `openmods.md` |
-| 2026-10-23 | v3.0.1-1181-g83330635 | A cover that fits every game page; no code change | `docs/cover.png` |
+| 2026-10-23 | v3.0.1-1181-g83330635 | A cover that fits every game page; no code change | `docs/cover.webp` |
 | 2026-10-23 | v3.0.1-1181-g83330635 | Mortal Shell II added; no code change | `FORK.md`, `openmods.json`, `openmods.md` |
 | 2026-10-27 | v3.0.1-1181-g83330635 | Phantom Blade Zero listed, not tested yet and without a zip; no code change | `FORK.md`, `openmods.json`, `openmods.md` |
 | 2026-10-29 | v3.0.1-1183-gcdbc0b66 | Upstream `cdbc0b66` merged (build 1183); Phantom Blade Zero tested, with its zip and our config; no code change | `FORK.md`, `openmods.json`, `openmods.md` |
