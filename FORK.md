@@ -17,7 +17,11 @@ from the default branch of a GitHub repository. Its first name was `dawnwalker_u
   [`1ceefac8b8c286f0fb3eb62b4aae075ff81df0bd`](https://github.com/UE4SS-RE/RE-UE4SS/commit/1ceefac8b8c286f0fb3eb62b4aae075ff81df0bd)
   (merged; 2026-11-01), the source of `UE4SS_v3.0.1-1195-g1ceefac8.zip`, and since 2026-11-13 upstream commit
   [`30afe5fff94a94c2313e220b2002059a080da9a0`](https://github.com/UE4SS-RE/RE-UE4SS/commit/30afe5fff94a94c2313e220b2002059a080da9a0)
-  (merged; tag `v4.0.0`, 2026-11-12), the source of `UE4SS_v4.0.0.zip`, the official release v4.0.0.
+  (merged; tag `v4.0.0`, 2026-11-12), the source of `UE4SS_v4.0.0.zip`, the official release v4.0.0. The older
+  upstream commit
+  [`cac01ee29ca2e2fa723ae3a4e14f0d52b70b226d`](https://github.com/UE4SS-RE/RE-UE4SS/commit/cac01ee29ca2e2fa723ae3a4e14f0d52b70b226d)
+  (2026-02-18), the source of the official experimental build `UE4SS_v3.0.1-934-gcac01ee2.zip` (Wuchang: Fallen
+  Feathers, since 2026-11-15), is an ancestor of all of them.
 - The UE4SS code is unchanged. This fork adds only `FORK.md`, `openmods.json`, `openmods.md` and the cover image
   `docs/cover.png`. It is unofficial: the UE4SS team did not make it and does not support it.
 - The release `v4.0.0` (2026-11-13) holds:
@@ -31,6 +35,13 @@ from the default branch of a GitHub repository. Its first name was `dawnwalker_u
     2026-11-12, byte for byte the same files), but after the v4.0.0 release, so v4.0.0 does not contain it yet.
   - The three 1181 game zips and `UE4SS_v3.0.1-1181-g83330635.zip`: byte for byte the files of the release
     `v3.0.1-1181-g83330635`.
+  - Added on 2026-11-15: `UE4SS_v3.0.1-934-gcac01ee2.zip`, the official experimental build 934, unchanged (from the
+    upstream release `experimental`, SHA-256 `1b3dfcaf...` as GitHub's digest), and
+    `wuchang_ue4ss_v3.0.1-934-gcac01ee2.zip`: that zip with one line changed in `ue4ss\UE4SS-settings.ini`,
+    `HookInitGameState = 0` (players' setting against a crash at start,
+    [UE4SS-RE/RE-UE4SS#1177](https://github.com/UE4SS-RE/RE-UE4SS/issues/1177)). Build 934 because every later build
+    has the gamepad problem of [UE4SS-RE/RE-UE4SS#1499](https://github.com/UE4SS-RE/RE-UE4SS/issues/1499) in this
+    game. Not tested here.
   - `SHA256SUMS.txt`.
 - The release `v3.0.1-1195-g1ceefac8` (2026-11-01) holds:
   - `UE4SS_v3.0.1-1195-g1ceefac8.zip` and `zCustomGameConfigs.zip`: the official files of that build, unchanged.
@@ -102,3 +113,4 @@ from the default branch of a GitHub repository. Its first name was `dawnwalker_u
 | 2026-11-01 | v3.0.1-1195-g1ceefac8 | Upstream `1ceefac8` merged (build 1195, with the mapping dump fix for enum properties without an enum, UE4SS-RE/RE-UE4SS#1483); Phantom Blade Zero tested with it; no code change | `FORK.md`, `openmods.md` |
 | 2026-11-01 | v3.0.1-1195-g1ceefac8 | In the Phantom Blade Zero zip: the Keybinds change removed, the official file again (Ctrl+Num6 = `DumpUSMAP()` with Blueprint-generated types); our config is now only the signatures and `MemberVariableLayout.ini` | `ue4ss/Mods/Keybinds/Scripts/main.lua` in `phantombladezero_ue4ss_v3.0.1-1195-g1ceefac8.zip` |
 | 2026-11-13 | v4.0.0 | Upstream `30afe5ff` merged (the official release v4.0.0); Phantom Blade Zero tested with it on Steam build 26367565; the same config; no code change | `FORK.md`, `openmods.json`, `openmods.md` |
+| 2026-11-15 | v4.0.0 | Wuchang: Fallen Feathers added, not tested here: the official build `v3.0.1-934-gcac01ee2` (the last one without the gamepad problem of UE4SS-RE/RE-UE4SS#1499) with one setting, `HookInitGameState = 0`; no code change | `FORK.md`, `openmods.json`, `openmods.md`; `ue4ss/UE4SS-settings.ini` in `wuchang_ue4ss_v3.0.1-934-gcac01ee2.zip` |

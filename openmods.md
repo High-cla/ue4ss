@@ -1,7 +1,7 @@
 # UE4SS
 
-The official [RE-UE4SS](https://github.com/UE4SS-RE/RE-UE4SS) script loader with one ready zip per tested Unreal
-game: UE4SS plus that game's config.
+The official [RE-UE4SS](https://github.com/UE4SS-RE/RE-UE4SS) script loader with one ready zip per Unreal game: UE4SS
+plus that game's config.
 
 ## What it does
 
@@ -14,9 +14,13 @@ need it. This listing republishes official UE4SS builds, so they can be found on
 - UE4SS `v3.0.1-1181-g83330635`: the official `experimental-latest` build of 2026-10-17 (commit
   [`83330635`](https://github.com/UE4SS-RE/RE-UE4SS/commit/8333063595fa3c49ad307f3b0f732accbb760d25)), for the games
   tested with it; their zips stay unchanged.
-- One ready zip per tested game: the official UE4SS files, plus the UE4SS team's own config for that game when the
-  team has one (from `zCustomGameConfigs.zip`), or our own config where the game needs one (Phantom Blade Zero, below).
-- Nothing else: UE4SS itself is not changed, and no mod is added. The official files of both builds are attached to
+- UE4SS `v3.0.1-934-gcac01ee2`: the official experimental build of 2026-02-18 (commit
+  [`cac01ee2`](https://github.com/UE4SS-RE/RE-UE4SS/commit/cac01ee29ca2e2fa723ae3a4e14f0d52b70b226d)), for Wuchang:
+  Fallen Feathers (below).
+- One ready zip per game: the official UE4SS files, plus the UE4SS team's own config for that game when the team has
+  one (from `zCustomGameConfigs.zip`), or our own config where the game needs one (Phantom Blade Zero and Wuchang:
+  Fallen Feathers, below).
+- Nothing else: UE4SS itself is not changed, and no mod is added. The official files of these builds are attached to
   the release as well, so you can compare.
 
 | Game | Zip | Config | Tested |
@@ -25,6 +29,7 @@ need it. This listing republishes official UE4SS builds, so they can be found on
 | Clair Obscur: Expedition 33 | `expedition33_ue4ss_v3.0.1-1181-g83330635.zip` | none: the UE4SS team has none, and the default settings work | 1.5.6 (Steam), 2026-10-23 |
 | Mortal Shell II | `mortalshell2_ue4ss_v3.0.1-1181-g83330635.zip` | `MortalShell2` (the UE4SS team's) | 1.12.0, 2026-10-23 |
 | Phantom Blade Zero | `phantombladezero_ue4ss_v4.0.0.zip` | `PhantomBladeZero` (ours, below) | Steam build 26367565, 2026-11-13 (earlier builds: 2026-10-29 to 2026-11-04) |
+| Wuchang: Fallen Feathers | `wuchang_ue4ss_v3.0.1-934-gcac01ee2.zip` | one setting (ours, below) | not tested here |
 
 ### Phantom Blade Zero
 
@@ -48,6 +53,19 @@ The UE4SS team took this config into UE4SS itself
 ([UE4SS-RE/RE-UE4SS#1484](https://github.com/UE4SS-RE/RE-UE4SS/pull/1484), merged on 2026-11-12, the same files). It
 was merged after the v4.0.0 release, so the official v4.0.0 does not contain it yet; the next official release will.
 
+### Wuchang: Fallen Feathers
+
+The newer UE4SS builds have a known problem in this game (Unreal Engine 5.1): with a gamepad, the game takes no input
+at boot and its own cursor is missing, until you switch to another window and back
+([UE4SS-RE/RE-UE4SS#1499](https://github.com/UE4SS-RE/RE-UE4SS/issues/1499)). The cause is a change in UE4SS's engine
+layer of 2026-02-19, so every official build since then has it, also v4.0.0. Build 934 (2026-02-18) is the last
+official build before that change; the issue names it as working.
+
+The zip is the official 934 zip with one setting changed in `ue4ss\UE4SS-settings.ini`: `HookInitGameState = 0`,
+which players use against a crash at the game's start
+([UE4SS-RE/RE-UE4SS#1177](https://github.com/UE4SS-RE/RE-UE4SS/issues/1177)). Everything else is the official 934
+build. This zip is not tested here: the game is not installed on our test PC.
+
 ## Screenshots
 
 ![UE4SS](docs/cover.png)
@@ -62,6 +80,7 @@ was merged after the v4.0.0 release, so the official v4.0.0 does not contain it 
    - Mortal Shell II: `MortalShell2\Binaries\Win64\`, next to `MortalShell2-Win64-Shipping.exe`.
    - Phantom Blade Zero: `platform\steam\`, next to the large `PBZ.exe` (about 500 MB). Not `steam\` (its small
      `PBZ.exe` only starts the game) and not `ProjectPBZ\Binaries\Win64\` (it holds no exe).
+   - Wuchang: Fallen Feathers: `Project_Plague\Binaries\Win64\`, next to `Project_Plague-Win64-Shipping.exe`.
 
    You then have `dwmapi.dll` and the folder `ue4ss\` next to the game's exe.
 4. Start the game. UE4SS writes its log to `ue4ss\UE4SS.log` in that folder.
@@ -77,7 +96,8 @@ UE4SS mods go into `ue4ss\Mods\<mod name>\` next to the game's exe. A mod with a
 starts by itself; other mods are listed in `ue4ss\Mods\mods.txt`. The build comes with UE4SS's own helper mods: the
 game console on `~`, `^` or `F10` (ConsoleEnablerMod), the cheat manager (CheatManagerEnablerMod), a loader for
 Blueprint mods in the game's `Content\Paks\LogicMods\` folder (BPModLoaderMod; `Dawnwalker\Content\Paks\LogicMods\`,
-`Sandfall\Content\Paks\LogicMods\`, `MortalShell2\Content\Paks\LogicMods\` or `ProjectPBZ\Content\Paks\LogicMods\`),
+`Sandfall\Content\Paks\LogicMods\`, `MortalShell2\Content\Paks\LogicMods\`, `ProjectPBZ\Content\Paks\LogicMods\` or
+`Project_Plague\Content\Paks\LogicMods\`),
 and keys for dumps (Keybinds: Ctrl+H the C++ headers, Ctrl+Num6 the mapping file).
 
 ## Compatibility
@@ -99,6 +119,8 @@ and keys for dumps (Keybinds: Ctrl+H the C++ headers, Ctrl+Num6 the mapping file
   update of 2026-11-04 (Steam build 26367565, `CL-302256_JKS-17280`) the 1195 zip was checked again: the same start,
   no new error. Tested on 2026-11-13 with UE4SS v4.0.0 and this zip on Steam build 26367565: game start, save load,
   our two signatures found their functions, a UE4SS C++ mod and a script pak mod worked.
+- Wuchang: Fallen Feathers (Unreal Engine 5.1): not tested here. The zip uses the build that UE4SS-RE/RE-UE4SS#1499
+  names as working with a gamepad, and the setting that players use in UE4SS-RE/RE-UE4SS#1177.
 - Other games are not tested here. For them, use the official `UE4SS_v4.0.0.zip` with your game's config from
   `zCustomGameConfigs.zip`, if the UE4SS team has one.
 - A game update can need a new UE4SS build or config. Then check the
@@ -119,7 +141,9 @@ and keys for dumps (Keybinds: Ctrl+H the C++ headers, Ctrl+Num6 the mapping file
   - The log says that UE4SS could not hook `ProcessConsoleExec`. Console commands that UE4SS mods add may not work
     (not tested).
   - A game update can change the exe; then the patterns or the layout in our config may need an update.
-- The 1181 build of the other games is an experimental build of UE4SS. Report problems with UE4SS itself to the
+- Wuchang: Fallen Feathers: the zip is not tested by us yet; please report how it works for you. Do not update it to
+  a newer UE4SS (such as 4.0.0) until UE4SS-RE/RE-UE4SS#1499 is fixed: then the gamepad problem above comes back.
+- The 1181 and 934 builds are experimental builds of UE4SS. Report problems with UE4SS itself to the
   [UE4SS issues](https://github.com/UE4SS-RE/RE-UE4SS/issues), and problems with these packages here.
 
 ## How to build
@@ -131,6 +155,7 @@ access to Epic Games' Unreal source; see the [UE4SS documentation](https://githu
 ## Credits
 
 UE4SS is made by the [UE4SS-RE team and its contributors](https://github.com/UE4SS-RE/RE-UE4SS/graphs/contributors),
-MIT license; the Phantom Blade Zero signatures are theirs too (from their custom game configs). This listing, the
-packages and the Phantom Blade Zero layout: Kintaro. MIT license, as UE4SS. These packages are unofficial: the UE4SS
+MIT license; the Phantom Blade Zero signatures are theirs too (from their custom game configs). The Wuchang: Fallen
+Feathers setting comes from players in UE4SS-RE/RE-UE4SS#1177. This listing, the packages and the Phantom Blade Zero
+layout: Kintaro. MIT license, as UE4SS. These packages are unofficial: the UE4SS
 team did not make them and does not support them.

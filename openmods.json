@@ -2,8 +2,8 @@
   "$schema": "https://openmods.nexus/openmods.schema.json",
   "openmods": 1,
   "name": "UE4SS",
-  "summary": "The official RE-UE4SS script loader with one ready zip per tested Unreal game: UE4SS plus that game's config.",
-  "games": ["the-blood-of-dawnwalker", "clair-obscur-expedition-33", "mortal-shell-ii", "phantom-blade-zero"],
+  "summary": "The official RE-UE4SS script loader with one ready zip per Unreal game: UE4SS plus that game's config.",
+  "games": ["the-blood-of-dawnwalker", "clair-obscur-expedition-33", "mortal-shell-ii", "phantom-blade-zero", "wuchang-fallen-feathers"],
   "tags": ["tools", "library"],
   "cover": "docs/cover.png",
   "gameVersions": {
