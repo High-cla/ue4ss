@@ -37,11 +37,15 @@ from the default branch of a GitHub repository. Its first name was `dawnwalker_u
     `v3.0.1-1181-g83330635`.
   - Added on 2026-11-15: `UE4SS_v3.0.1-934-gcac01ee2.zip`, the official experimental build 934, unchanged (from the
     upstream release `experimental`, SHA-256 `1b3dfcaf...` as GitHub's digest), and
-    `wuchang_ue4ss_v3.0.1-934-gcac01ee2.zip`: that zip with one line changed in `ue4ss\UE4SS-settings.ini`,
-    `HookInitGameState = 0` (players' setting against a crash at start,
-    [UE4SS-RE/RE-UE4SS#1177](https://github.com/UE4SS-RE/RE-UE4SS/issues/1177)). Build 934 because every later build
-    has the gamepad problem of [UE4SS-RE/RE-UE4SS#1499](https://github.com/UE4SS-RE/RE-UE4SS/issues/1499) in this
-    game. Not tested here.
+    `wuchang_ue4ss_v3.0.1-934-gcac01ee2.zip`: since its second upload (2026-11-15) byte for byte the files of the
+    community package "UE4SS for WFF" 1.79 (Nexus Mods): that zip with `ue4ss\UE4SS-settings.ini` (older template;
+    `HookInitGameState = 0`, players' setting against a crash at start,
+    [UE4SS-RE/RE-UE4SS#1177](https://github.com/UE4SS-RE/RE-UE4SS/issues/1177); `ConsoleEnabled = 1`,
+    `GuiConsoleEnabled = 1`), `ue4ss\Mods\mods.txt` and `mods.json` (LineTraceMod on),
+    `ue4ss\Mods\BPModLoaderMod\Scripts\main.lua` (the official file of 2025-01-30, commit `b7471ef7`, without its
+    comments) and nine files in `ue4ss\Default_UVTD_Configs\Config\`. The first upload had only
+    `HookInitGameState = 0`. Build 934 because every later build has the gamepad problem of
+    [UE4SS-RE/RE-UE4SS#1499](https://github.com/UE4SS-RE/RE-UE4SS/issues/1499) in this game. Not tested here.
   - `SHA256SUMS.txt`.
 - The release `v3.0.1-1195-g1ceefac8` (2026-11-01) holds:
   - `UE4SS_v3.0.1-1195-g1ceefac8.zip` and `zCustomGameConfigs.zip`: the official files of that build, unchanged.
@@ -114,3 +118,4 @@ from the default branch of a GitHub repository. Its first name was `dawnwalker_u
 | 2026-11-01 | v3.0.1-1195-g1ceefac8 | In the Phantom Blade Zero zip: the Keybinds change removed, the official file again (Ctrl+Num6 = `DumpUSMAP()` with Blueprint-generated types); our config is now only the signatures and `MemberVariableLayout.ini` | `ue4ss/Mods/Keybinds/Scripts/main.lua` in `phantombladezero_ue4ss_v3.0.1-1195-g1ceefac8.zip` |
 | 2026-11-13 | v4.0.0 | Upstream `30afe5ff` merged (the official release v4.0.0); Phantom Blade Zero tested with it on Steam build 26367565; the same config; no code change | `FORK.md`, `openmods.json`, `openmods.md` |
 | 2026-11-15 | v4.0.0 | Wuchang: Fallen Feathers added, not tested here: the official build `v3.0.1-934-gcac01ee2` (the last one without the gamepad problem of UE4SS-RE/RE-UE4SS#1499) with one setting, `HookInitGameState = 0`; no code change | `FORK.md`, `openmods.json`, `openmods.md`; `ue4ss/UE4SS-settings.ini` in `wuchang_ue4ss_v3.0.1-934-gcac01ee2.zip` |
+| 2026-11-15 | v4.0.0 | Wuchang: Fallen Feathers zip uploaded again: now byte for byte the files of the community package "UE4SS for WFF" 1.79 (its settings file, mods.txt, mods.json, the older official BPModLoaderMod script, nine developer config files); the same build; no code change | `FORK.md`, `openmods.md`; those files in `wuchang_ue4ss_v3.0.1-934-gcac01ee2.zip` |
